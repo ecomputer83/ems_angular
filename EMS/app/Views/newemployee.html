@@ -1,0 +1,101 @@
+﻿<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                New Employee
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="#/home">Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-edit"></i> New Employee
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <form role="form">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Employee FirstName</label>
+                        <input class="form-control" placeholder="Employee FirstName" ng-model="fname">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Employee LastName</label>
+                        <input class="form-control" placeholder="Employee LastName" ng-model="lname">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Employee Date of Birth</label>
+                        <input class="form-control" type="date" ng-model="lname">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Position</label>
+                        <select multiple class="form-control" ng-model="position">
+                            <option>Junior Software Developer</option>
+                            <option>Senior Software Developer</option>
+                            <option>Project Manager</option>
+                            <option>Software Tester</option>
+                            <option>Manager</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Guardian FirstName</label>
+                        <input class="form-control" placeholder="Guardian FirstName" ng-model="fname_g">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Guardian LastName</label>
+                        <input class="form-control" placeholder="Guardian LastName" ng-model="lname_g">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="form-group">
+                        <label>Guradian Date of Birth</label>
+                        <input class="form-control" type="date" ng-model="dob_g">
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Relationship</label>
+                        <input class="form-control" placeholder="Relation" ng-model="relation">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-default" ng-click="Register()">Submit</button>
+                    </div>
+                </div>
+        </form>
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
