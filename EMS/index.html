@@ -24,13 +24,14 @@
     <link href="Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
       
     <script src="Assets/Js/angular.min.js"></script>
-    <script src="Assets/Js/angular-route.min.js"></script>
+    <script src="Assets/Js/angular-route.js"></script>
     <script src="Assets/Js/angular-cookies.min.js"></script>
+    <script src="Assets/Js/angular-local-storage.js"></script>
     <script src="app/app.js"></script>
     <script src="app/Service/AuthInterceptorService.js"></script>
     <script src="app/Service/Service.js"></script>
-    <script src="app/Controller/HomeController.js"></script>
-    <script src="app/Controller/NewEmployee.js"></script>
+    <script src="app/Controller/Home.js"></script>
+    <script src="app/Controller/Employee.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -160,10 +161,10 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <!--<li class="active">
                         <a href="#/home"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
-                    </li>
-                    <li>
+                    </li>-->
+                    <li class="active">
                         <a href="#/NewEmployee"><i class="fa fa-fw fa-table"></i> New Employee</a>
                     </li>
                     <li>

@@ -1,6 +1,6 @@
 ﻿'use strict';
-app.factory('Service', ['$http', '$q', '$rootScope', 'localStorageService', function ($http, $q, $rootScope, localStorageService) {
-    var serviceBase = 'http://127.0.0.1:234/1africEdu/index.php';
+app.factory('Service', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
+    var serviceBase = 'http://localhost:83/';
 
     var ServiceFactory = {};
     var _authentication = {
@@ -24,9 +24,9 @@ app.factory('Service', ['$http', '$q', '$rootScope', 'localStorageService', func
         });
     };
     var _AddEmployee = function (registration) {
-        return $http.post(serviceBase + 'api/Employees', registration, {
+        return $http.post(serviceBase + 'api/Employees', JSON.stringify(registration), {
             transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
+            headers: { 'Content-Type': 'application/json' }
         }).then(function (response) {
             return response;
         })
@@ -34,7 +34,7 @@ app.factory('Service', ['$http', '$q', '$rootScope', 'localStorageService', func
     var _EditEmployee = function (id, registration) {
         return $http.post(serviceBase + 'api/Employees/'+id, registration, {
             transformRequest: angular.identity,
-            headers: { 'Content-Type': undefined }
+            headers: { 'Content-Type': 'application/json' }
         }).then(function (response) {
             return response;
         })
@@ -51,37 +51,37 @@ app.factory('Service', ['$http', '$q', '$rootScope', 'localStorageService', func
         });
         return deferred.promise;
     };
-    var _logOut = function () {
-        $rootScope.token = "";
-        $rootScope.username = "";
+    //var _logOut = function () {
+    //    $rootScope.token = "";
+    //    $rootScope.username = "";
 
-        _authentication.isAuth = false;
-        _authentication.userName = "";
-        $rootScope.isAuth = false;
-        localStorage.removeItem('authentication'); localStorage.removeItem('user');
-    };
-    var _fillAuthData = function () {
-        var authData = localStorage.getItem('authorizationData');
-        if (authData) {
-            _authentication.isAuth = true;
-            var authDatas = localStorage.getItem('userName');
-            _authentication.userName = authDatas;
-        }
-    }
+    //    _authentication.isAuth = false;
+    //    _authentication.userName = "";
+    //    $rootScope.isAuth = false;
+    //    localStorage.removeItem('authentication'); localStorage.removeItem('user');
+    //};
+    //var _fillAuthData = function () {
+    //    var authData = localStorage.getItem('authorizationData');
+    //    if (authData) {
+    //        _authentication.isAuth = true;
+    //        var authDatas = localStorage.getItem('userName');
+    //        _authentication.userName = authDatas;
+    //    }
+    //}
     var _Employee = function (id) {
-        $http.get(serviceBase + 'api/Employees/' + id).success(function (response) {
+        return $http.get(serviceBase + 'api/Employees/' + id).success(function (response) {
             return response;
         })
 
     }
     var _DeleteEmployee = function (id) {
-        $http.delete(serviceBase + 'api/Employees/' + id).success(function (response) {
+        return $http.delete(serviceBase + 'api/Employees/' + id).success(function (response) {
             return response;
         })
 
     }
     var _Employees = function () {
-        $http.get(serviceBase + 'api/Employees').success(function (response) {
+        return $http.get(serviceBase + 'api/Employees').success(function (response) {
             return response;
         })
 
@@ -109,8 +109,8 @@ app.factory('Service', ['$http', '$q', '$rootScope', 'localStorageService', func
     ServiceFactory.stages = _stages;
 
     ServiceFactory.login = _login;
-    ServiceFactory.logOut = _logOut;
-    ServiceFactory.fillAuthData = _fillAuthData;
+    //ServiceFactory.logOut = _logOut;
+    //ServiceFactory.fillAuthData = _fillAuthData;
     ServiceFactory.authentication = _authentication;
     ServiceFactory.Employee = _Employee;
     ServiceFactory.DeleteEmployee = _DeleteEmployee;
